@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Large Text File Stream</title>
+</head>
+<body>
+<h2>Streaming Huge Text File (Non-blocking)</h2>
+<pre id="output">Loading...</pre>
+
+<script>
+    fetch('/text/stream')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("output").textContent = data;
+        })
+        .catch(err => {
+            document.getElementById("output").textContent = "Error loading file: " + err;
+        });
+</script>
+</body>
+</html>
